@@ -398,7 +398,7 @@ h4 {
     flex-shrink: 0;
 }
 
-/* === Bio Section === */
+/* === Bio Section (更新照片與連結區塊) === */
 .bio-card {
     background: #fff;
     border-radius: 12px;
@@ -406,28 +406,33 @@ h4 {
     box-shadow: var(--shadow-soft);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 24px;
+    /* 增加間距 */
 }
 
 .bio-header {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 24px;
     border-bottom: 1px solid var(--border-soft);
-    padding-bottom: 20px;
+    padding-bottom: 24px;
 }
 
-.bio-avatar {
-    width: 64px;
-    height: 64px;
-    background-color: var(--accent-brown);
-    color: #fff;
+/* 講師照片樣式 */
+.bio-avatar-img {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    font-family: var(--font-heading);
+    overflow: hidden;
+    border: 2px solid var(--accent-light);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bio-avatar-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .bio-card p {
@@ -440,15 +445,81 @@ h4 {
     background-color: #FAFAFA;
     padding: 20px;
     border-radius: 8px;
+    margin-bottom: 24px;
 }
 
 .bio-details h4 {
     margin-top: 0;
+    margin-bottom: 12px;
 }
 
 .bio-details ul {
     margin-bottom: 0;
     padding-left: 1.2rem;
+}
+
+/* 延伸連結區塊 */
+.bio-links-section h4 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 1.05rem;
+    color: var(--accent-brown);
+}
+
+.bio-links-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.bio-link-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent-light);
+    padding: 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.bio-link-card:hover {
+    background: #fff;
+    border-color: var(--accent-brown);
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-2px);
+}
+
+.bio-link-card .link-icon {
+    font-size: 1.8rem;
+}
+
+.bio-link-card .link-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.bio-link-card .link-text strong {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.bio-link-card .link-text span {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+@media (max-width: 600px) {
+    .bio-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .bio-links-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* === Aesthetic Form === */
