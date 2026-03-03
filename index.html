@@ -54,7 +54,8 @@
             </div>
 
             <div class="donation-note">
-                🎁 本次活動為公益性質，每場活動將採取「隨喜捐款」，所得將全數捐贈至公益單位。
+                🎁 本次活動為公益性質，每場活動將採取「隨喜捐款」，所得將全數捐贈至育幼院公益單位。<br>
+                <small class="donation-subtext">👉 目前正在聯繫與評估 「台灣好鄰居協會」 與 「等家寶寶社會福利協會」，預計三月中確認捐贈單位。</small>
             </div>
         </section>
 
@@ -161,7 +162,8 @@
             <div class="bio-card">
                 <div class="bio-header">
                     <div class="bio-avatar-img">
-                        <img src="./instructor.jpg" alt="Tifa Lin">
+                        <!-- 換上新的講師照片 -->
+                        <img src="./講師照片.jpg" alt="引導師 Tifa">
                     </div>
                     <div>
                         <h3>Tifa Lin</h3>
@@ -218,19 +220,25 @@
 
                 <div class="form-row">
                     <div class="form-group half">
-                        <label for="name">姓名 <span class="required">*</span></label>
+                        <label for="name">如何稱呼你 <span class="required">*</span></label>
                         <input type="text" id="name" name="name" required placeholder="您的稱呼">
                     </div>
                     <div class="form-group half">
-                        <label for="email">Email <span class="required">*</span></label>
+                        <label for="email">電子信箱 <span class="required">*</span></label>
                         <input type="email" id="email" name="email" required placeholder="example@email.com">
                     </div>
+                </div>
+
+                <!-- 新增：年紀與職業 -->
+                <div class="form-group">
+                    <label for="age_job">年紀與職業 <span class="required">*</span></label>
+                    <input type="text" id="age_job" name="age_job" required placeholder="例如：30歲 / 行銷企劃">
                 </div>
 
                 <!-- 2. 優化後的場次選擇區域 (Checkbox Group) -->
                 <div class="form-group">
                     <div class="label-wrapper">
-                        <label>選擇你想參加的場次 <span class="required">*</span></label>
+                        <label>報名場次 <span class="required">*</span></label>
                         <span class="sub-label">( 可依你所需選取多個選項 )</span>
                     </div>
 
@@ -275,8 +283,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="recommender">推薦人 <span class="optional">(選填)</span></label>
-                    <input type="text" id="recommender" name="recommender" placeholder="誰推薦您來的呢？">
+                    <label for="recommender">推薦人 <span class="required">*</span></label>
+                    <input type="text" id="recommender" name="recommender" required placeholder="誰推薦您來的呢？">
                 </div>
 
                 <div class="form-group">
@@ -285,8 +293,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="note">備註 / 想說的話 <span class="optional">(選填)</span></label>
+                    <label for="note">其他補充或想說的話 <span class="optional">(非必填)</span></label>
                     <textarea id="note" name="note" rows="3" placeholder="任何其他想讓我知道的事..."></textarea>
+                </div>
+
+                <!-- 新增：活動注意事項 -->
+                <div class="form-notice">
+                    <ul>
+                        <li>歡迎邀請朋友一起來共讀小房間交流與成長。（為自己創造支持盟友）</li>
+                        <li>活動連結將於課前 7 日前發出通知信件。</li>
+                        <li>為尊重彼此時間，若不克參加，請於活動前 2 日通知 Tifa。</li>
+                        <li>公益隨喜：隨喜金額按照自己直覺與心意；每場結束後將提供匯款資訊，統一於六月公開結算捐款總額。一起鍛鍊思考肌肉，也為世界付出一點小心意。</li>
+                    </ul>
                 </div>
 
                 <button type="submit" id="submitBtn" class="submit-btn">送出報名</button>
@@ -294,7 +312,7 @@
 
             <!-- 成功訊息 -->
             <div id="successMessage" class="success-message" style="display: none;">
-                <div class="success-icon">�</div>
+                <div class="success-icon">✨</div>
                 <h2>報名成功！</h2>
                 <p>請留意您的信箱通知，我們共讀小房間見！</p>
                 <button onclick="location.reload()" class="reload-btn">再次報名</button>
