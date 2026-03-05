@@ -2,8 +2,8 @@ const form = document.getElementById('signupForm');
 const submitBtn = document.getElementById('submitBtn');
 const successMessage = document.getElementById('successMessage');
 
-// Google Apps Script Deploy URL (維持原本的連結)
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzq-EArICEl50DYzwp_jx6wvdyrByIs3FltY3rkIrsnDS_BDEup25wKZ30vatDIp6uM/exec';
+// Google Apps Script Deploy URL (更新為新版本連結)
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw3XvNWPS42xA8s0sv6stZ5n75SvHPb-P5lURVl71ocAYgbQceMNdGJAyrv8XlvvfPj/exec';
 
 form.addEventListener('submit', function (e) {
     e.preventDefault(); // 防止預設送出
@@ -25,14 +25,15 @@ form.addEventListener('submit', function (e) {
     // 例如: "2/25 (三)..., 4/09 (四)..."
     const sessionValues = Array.from(checkedSessions).map(cb => cb.value).join(', ');
 
-    // 3. 準備要傳送的 payload
+    // 3. 準備要傳送的資料
     const payload = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        session: sessionValues, // 在這裡填入合併後的選字串
-        recommender: formData.get('recommender'),
-        expectation: formData.get('expectation'),
-        note: formData.get('note')
+        name: formData.get('name'),          // 如何稱呼你
+        email: formData.get('email'),        // 電子信箱
+        age_job: formData.get('age_job'),    // 年紀與職業
+        session: sessionValues,              // 報名場次
+        recommender: formData.get('recommender'), // 推薦人
+        expectation: formData.get('expectation'), // 對共讀小房間的期待
+        note: formData.get('note')           // 其他補充或想說的話
     };
 
     // 4. 鎖定按鈕，顯示載入中

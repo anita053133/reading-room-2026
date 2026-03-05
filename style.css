@@ -170,6 +170,16 @@ h4 {
     border: 1px dashed var(--accent-brown);
 }
 
+.donation-link {
+    color: var(--accent-brown);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.donation-link:hover {
+    color: var(--accent-hover);
+}
+
 /* === Feature Grid === */
 .features-grid {
     display: grid;
@@ -418,15 +428,15 @@ h4 {
     padding-bottom: 24px;
 }
 
-/* 講師照片樣式 */
+/* 講師照片樣式 (調整為原來的兩倍大：200px) */
 .bio-avatar-img {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     flex-shrink: 0;
     border-radius: 50%;
     overflow: hidden;
-    border: 2px solid var(--accent-light);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--accent-light);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .bio-avatar-img img {
@@ -751,10 +761,45 @@ textarea:focus {
     margin-top: 20px;
 }
 
-/* Fade In Animation */
-.fade-in {
-    animation: fadeIn 1s ease forwards;
-    opacity: 0;
+/* 公益備註小字 */
+.donation-subtext {
+    display: block;
+    margin-top: 8px;
+    color: #999;
+    font-size: 0.85rem;
+    font-weight: normal;
+}
+
+/* 表單下方的提示文字區塊 */
+.form-notice {
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #FDFCFB;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-brown);
+}
+
+.form-notice ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    list-style: none;
+}
+
+.form-notice li {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 10px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.form-notice li::before {
+    content: "•";
+    color: var(--accent-brown);
+    font-weight: bold;
+    display: inline-block;
+    width: 1rem;
+    margin-left: -1rem;
 }
 
 @keyframes fadeIn {
