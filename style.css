@@ -915,3 +915,16 @@ textarea:focus {
         transform: translateY(20px);
     }
 }
+
+/* 已過期選項的樣式 (刪除線與低透明度) */
+.checkbox-item.expired {
+    text-decoration: line-through;
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.checkbox-item.expired .checkmark {
+    background-color: #f0f0f0;
+    border-color: #ddd;
+}

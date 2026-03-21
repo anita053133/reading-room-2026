@@ -5,6 +5,31 @@ const successMessage = document.getElementById('successMessage');
 // Google Apps Script Deploy URL (更新為新版本連結)
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw3XvNWPS42xA8s0sv6stZ5n75SvHPb-P5lURVl71ocAYgbQceMNdGJAyrv8XlvvfPj/exec';
 
+document.addEventListener('DOMContentLoaded', checkExpiredSessions);
+
+function checkExpiredSessions() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const checkboxes = document.querySelectorAll('input[name="session"]');
+    checkboxes.forEach(cb => {
+        const val = cb.value;
+        const match = val.match(/^(\d{1,2})\/(\d{1,2})/);
+        if (match) {
+            // 根據網站標題使用年份 2026
+            const eventDate = new Date(2026, parseInt(match[1], 10) - 1, parseInt(match[2], 10));
+
+            if (eventDate < today) {
+                cb.disabled = true;
+                const label = cb.closest('.checkbox-item');
+                if (label) {
+                    label.classList.add('expired');
+                }
+            }
+        }
+    });
+}
+
 form.addEventListener('submit', function (e) {
     e.preventDefault(); // 防止預設送出
 
