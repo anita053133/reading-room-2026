@@ -51,14 +51,15 @@ form.addEventListener('submit', function (e) {
     const sessionValues = Array.from(checkedSessions).map(cb => cb.value).join(', ');
 
     // 3. 準備要傳送的資料
+    // 將順序完全對齊 Google Sheet 的欄位，避免跑版
     const payload = {
-        name: formData.get('name'),          // 如何稱呼你
-        email: formData.get('email'),        // 電子信箱
-        age_job: formData.get('age_job'),    // 年紀與職業
-        session: sessionValues,              // 報名場次
-        recommender: formData.get('recommender'), // 推薦人
-        expectation: formData.get('expectation'), // 對共讀小房間的期待
-        note: formData.get('note')           // 其他補充或想說的話
+        name: formData.get('name'),               // 1. 如何稱呼你
+        session: sessionValues,                   // 2. 報名場次
+        age_job: formData.get('age_job'),         // 3. 年紀與職業
+        recommender: formData.get('recommender'), // 4. 推薦人
+        expectation: formData.get('expectation'), // 5. 期待
+        email: formData.get('email'),             // 6. 電子信箱
+        note: formData.get('note')                // 7. 其他補充
     };
 
     // 4. 鎖定按鈕，顯示載入中
